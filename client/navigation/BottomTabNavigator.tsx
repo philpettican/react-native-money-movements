@@ -3,16 +3,16 @@
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
+import TransactionsScreen from '../screens/TransactionsScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, TransactionsTabParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -21,13 +21,13 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Transactions"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Transactions"
+        component={TransactionsNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome5TabBarIcon name="money-check" color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -41,6 +41,10 @@ export default function BottomTabNavigator() {
   );
 }
 
+function FontAwesome5TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome5>['name']; color: string }) {
+  return <FontAwesome5 size={30} style={{ marginBottom: -3 }} {...props} />;
+}
+
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
@@ -49,17 +53,17 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const TransactionsStack = createStackNavigator<TransactionsTabParamList>();
 
-function TabOneNavigator() {
+function TransactionsNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+    <TransactionsStack.Navigator>
+      <TransactionsStack.Screen
+        name="Transactions"
+        component={TransactionsScreen}
+        options={{ headerTitle: 'Transactions' }}
       />
-    </TabOneStack.Navigator>
+    </TransactionsStack.Navigator>
   );
 }
 
