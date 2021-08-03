@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "MoneyMovements",
+    "name": "Money Movements",
     "slug": "MoneyMovements",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -29,6 +29,8 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "description": "React Native app to display money movement data(transactions) to users",
+    "githubUrl": "https://github.com/philpettican/react-native-money-movements"
   }
 }
