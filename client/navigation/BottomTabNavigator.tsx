@@ -11,6 +11,7 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TransactionsScreen from '../screens/TransactionsScreen';
+import TransactionDetailScreen from '../screens/TransactionDetailScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { BottomTabParamList, TransactionsTabParamList, TabTwoParamList } from '../types';
 
@@ -59,9 +60,14 @@ function TransactionsNavigator() {
   return (
     <TransactionsStack.Navigator>
       <TransactionsStack.Screen
-        name="Transactions"
+        name="TransactionsScreen"
         component={TransactionsScreen}
         options={{ headerTitle: 'Transactions' }}
+      />
+      <TransactionsStack.Screen
+        name="TransactionDetailScreen"
+        component={TransactionDetailScreen}
+        options={{ headerTitle: 'Transaction Detail' }}
       />
     </TransactionsStack.Navigator>
   );
