@@ -1,7 +1,6 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
 
-import { View } from '../components/Themed';
+import { ActivityIndicator, View } from '../components/Themed';
 import { TransactionDetailScreenProps } from '../types';
 import TransactionDetails from '../components/TransactionDetails';
 import useTransaction from '../hooks/useTransaction';
@@ -15,7 +14,7 @@ const TransactionDetailScreen = (props: TransactionDetailScreenProps) => {
 
     return (
         <View style={{flex: 1, padding: 10}}>
-            {query.isLoading && <ActivityIndicator></ActivityIndicator>}
+            {query.isLoading && <ActivityIndicator lightColor="rgba(255,255,255,0.1)" darkColor="#eee" />}
             {query.isFetched && <TransactionDetails transaction={transaction}></TransactionDetails>}
         </View>
     );

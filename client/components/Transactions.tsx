@@ -1,9 +1,10 @@
 import React from 'react';
-import { ActivityIndicator, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import Transaction from './Transaction';
 import { ITransaction } from '../model/Transaction';
 import useTransactions from '../hooks/useTransactions';
+import { ActivityIndicator } from './Themed';
 
 type TransactionProps = {
     onItemPress?: (transaction: ITransaction) => void
@@ -23,7 +24,7 @@ const Transactions = (props: TransactionProps) => {
 
     if (query.isLoading) {
         return (
-            <ActivityIndicator style={{flex: 1, backgroundColor: 'white'}}></ActivityIndicator>
+            <ActivityIndicator lightColor="rgba(255,255,255,0.1)" darkColor="#eee" />
         );
     }
 
